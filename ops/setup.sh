@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Ensure latest
 apt-get update
 
@@ -6,5 +8,5 @@ apt-get install -y build-essential gpp make
 
 # Install and configure nginx
 apt-get install -y nginx
-cp /var/src/provisioning/nginx.localhost /etc/nginx/sites-available/default
+cp /var/www/ops/nginx.localhost /etc/nginx/sites-available/default
 service nginx restart

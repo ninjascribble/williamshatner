@@ -1,0 +1,16 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  node:
+    version: 6.3.0
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - rsync -avz ./ops $REMOTE_USER@$REMOTE_SERVER:$REMOTE_DIR
+      # - rsync -avz ./src $REMOTE_USER@$REMOTE_SERVER:$REMOTE_DIR
+      - ssh -t $REMOTE_USER@$REMOTE_SERVER "sudo $REMOTE_DIR/ops/setup.sh"
