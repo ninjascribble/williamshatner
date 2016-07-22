@@ -1,0 +1,17 @@
+{
+  "name": "shatner",
+  "version": "1.0.0",
+  "description": "A URL shortener exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --ui qunit --recursive ./test"
+  },
+  "author": "Scott Grogan (https://github.com/ninjascribble)",
+  "repository": "https://github.com/ninjascribble/williamshatner",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "mocha": "^2.5.3"
+  }
+}
