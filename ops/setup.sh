@@ -36,10 +36,6 @@ if ! is_installed nodejs; then
   apt-get install -y nodejs
 fi
 
-if ! is_installed nodemon; then
-  npm install -g nodemon
-fi
-
 # Configure nginx
 cp /var/www/ops/nginx.localhost /etc/nginx/sites-available/default
 service nginx restart
@@ -50,7 +46,4 @@ cp /var/www/ops/logrotate.conf /etc/logrotate.d/shatner.conf
 # Install and configure the NIMH-LCM application
 touch /var/log/shatner.log
 cp /var/www/ops/shatner.conf /etc/init/shatner.conf
-pushd /var/www/src > /dev/null
-  npm install
-popd > /dev/null
 service shatner restart

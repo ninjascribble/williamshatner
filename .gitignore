@@ -1,3 +1,7 @@
 .DS_Store
 .vagrant
 node_modules
+npm-debug.log.*
+static/main.js
+static/main.css
+static/node_modules
