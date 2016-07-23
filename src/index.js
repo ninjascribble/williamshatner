@@ -1,10 +1,15 @@
 const util = require('util');
 const express = require('express');
+const jsx = require('express-react-views');
 const app = express();
 const port = 3000;
 
+app.set('views', __dirname + '/components');
+app.set('view engine', 'jsx');
+app.engine('jsx', jsx.createEngine());
+
 app.get('/', function (req, res) {
-  res.send('sweet!');
+  res.render('Index', {});
 });
 
 app.listen(port, function () {
