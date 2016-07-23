@@ -30,7 +30,7 @@ vm.stop:
 vm.deploy: test client.build server.restart
 
 ci.deploy: client.build
-	rsync -avz ./ops $REMOTE_USER@$REMOTE_SERVER:$REMOTE_DIR
-	rsync -avz ./src $REMOTE_USER@$REMOTE_SERVER:$REMOTE_DIR
-	rsync -avz ./static $REMOTE_USER@$REMOTE_SERVER:$REMOTE_DIR
-	ssh -t $REMOTE_USER@$REMOTE_SERVER "sudo $REMOTE_DIR/ops/setup.sh"
+	rsync -avz ./ops $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
+	rsync -avz ./src $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
+	rsync -avz ./static $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
+	ssh -t $(REMOTE_USER)@$(REMOTE_SERVER) "sudo $(REMOTE_DIR)/ops/setup.sh"
