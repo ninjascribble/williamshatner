@@ -1,3 +1,5 @@
+const Strings = require('../utils/Strings');
+
 module.exports = {
   configureIndexPageHandler: function (clientCssPath, clientJsPath) {
     return (req, res) => {
@@ -10,7 +12,7 @@ module.exports = {
       res.send({
         title: 'this is the title from the server',
         longUrl: req.body.url,
-        shortUrl: 'this is the short url from the server',
+        shortUrl: Strings.tinyHash(req.body.url),
         errors: null
       });
     }
