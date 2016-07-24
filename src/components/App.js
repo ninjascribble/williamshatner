@@ -1,16 +1,11 @@
 const React = require('react');
 const PageHeader = require('./PageHeader');
-const SubmissionForm = require('./SubmissionForm');
+const SubmissionForm = require('../containers/SubmissionForm');
 
 module.exports = React.createClass({
   render: function () {
     return (
-      <html>
-        <head>
-          <title>William Shatner is a URL shortener</title>
-          <link rel="stylesheet" href={ this.props.clientCssPath }/>
-        </head>
-        <body>
+        <div>
           <div className="jumbotron">
             <div className="container-fluid">
               <div className="row">
@@ -23,9 +18,10 @@ module.exports = React.createClass({
               </div>
             </div>
           </div>
-          <script type="text/javascript" src={ this.props.clientJsPath }></script>
-        </body>
-      </html>
+          <div className="container-fluid">
+            Body text goes here...
+          </div>
+        </div>
     );
   }
 });

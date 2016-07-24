@@ -1,3 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './mixins.scss';
+@import './animations.scss';
+
+.input-group-lg > .input-group-addon > .glyphicon {
+  font-size: 110%;
+  top: 3px;
+  @include animation('spin 1s infinite linear');
+}

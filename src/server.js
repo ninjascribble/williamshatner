@@ -10,8 +10,8 @@ const clientCssPath = '/static/main.css';
 const clientJsPath = '/static/main.js';
 
 app.set('views', viewsRootPath);
-app.set('view engine', 'jsx');
-app.engine('jsx', jsx.createEngine());
+app.set('view engine', 'js');
+app.engine('js', jsx.createEngine());
 
 // The /static directory is created by webpack, and won't exist by default!
 app.use('/static', express.static(staticRootPath));
