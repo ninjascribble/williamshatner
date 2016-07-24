@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = [{
@@ -28,6 +29,14 @@ module.exports = [{
     }]
   },
   plugins: [
-    new ExtractTextPlugin('main.css')
+    new ExtractTextPlugin('main.css'),
+
+    // Turn off warnings to avoid third-party plugin messages
+    // @see: https://github.com/webpack/webpack/issues/587
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+          warnings: false,
+      },
+    })
   ]
 }];
