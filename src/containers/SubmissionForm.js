@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onSubmit: Actions.createDispatcher(dispatch, Actions.submitLongUrl)
+    onSubmit: Actions.createDispatcher(dispatch, Actions.requestShortUrl)
   }
 }
 

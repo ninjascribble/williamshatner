@@ -8,19 +8,19 @@ module.exports = function (state = {}, action) {
   };
 
   switch (action.type) {
-    case Actions.HTTP_REQUEST_SHORT_URL:
+    case Actions.REQUEST_SHORT_URL:
       result.status = 'PROCESSING';
       result.errors = null;
       result.url = action.payload.url;
       break;
 
-    case Actions.HTTP_RESPONSE_SHORT_URL:
+    case Actions.RECEIVE_SHORT_URL:
       result.status = 'READY';
       result.errors = null;
       result.url = undefined;
       break;
 
-    case Actions.INVALID_LONG_URL:
+    case Actions.REQUEST_SHORT_URL_ERROR:
       result.status = 'ERROR';
       result.errors = action.payload.errors;
       result.url = undefined;

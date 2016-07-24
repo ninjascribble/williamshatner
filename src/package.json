@@ -4,7 +4,7 @@
   "description": "A URL shortener exercise",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --ui qunit --recursive ./test",
+    "test": "mocha --ui tdd --recursive ./test",
     "dev": "webpack -d --watch --display-error-details --devtool eval-cheap-module-source-map",
     "build": "webpack -p --define process.env.NODE_ENV='\"production\"'"
   },
@@ -20,14 +20,14 @@
     "bootstrap-sass": "^3.3.6",
     "chai": "^3.4.1",
     "css-loader": "^0.23.0",
-    "extract-text-webpack-plugin": "^0.9.1",
     "express": "^4.14.0",
     "express-react-views": "^0.10.2",
+    "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "mocha": "^2.3.4",
     "node-sass": "^3.8.0",
     "sass-loader": "^3.1.2",
-    "sinon": "^1.17.3",
+    "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9"

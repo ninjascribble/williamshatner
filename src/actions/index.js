@@ -1,53 +1,55 @@
-module.exports.SUBMIT_LONG_URL = 'SUBMIT_LONG_URL';
-module.exports.HTTP_REQUEST_SHORT_URL = 'HTTP_REQUEST_SHORT_URL';
-module.exports.HTTP_RESPONSE_SHORT_URL = 'HTTP_RESPONSE_SHORT_URL';
-module.exports.INVALID_LONG_URL = 'INVALID_LONG_URL';
+const Validation = require('../utils/Validation');
 
-module.exports.createDispatcher = function(dispatch, action) {
-  return function (...args) {
-    dispatch(action(...args));
+module.exports = class Actions {
+  static get REQUEST_SHORT_URL() { return 'REQUEST_SHORT_URL'; }
+  static get RECEIVE_SHORT_URL() { return 'RECEIVE_SHORT_URL'; }
+  static get REQUEST_SHORT_URL_ERROR() { return 'REQUEST_SHORT_URL_ERROR'; }
+
+  static createDispatcher (dispatch, action) {
+    if (typeof dispatch !== 'function' || typeof action !== 'function') {
+      throw new TypeError('dispatch and action must be functions');
+    }
+    return function (...args) {
+      dispatch(action(...args));
+    }
   }
-}
 
-module.exports.submitLongUrl = function (url) {
-  return (dispatch) => {
-    let isValid = /^http/.test(url);
+  static requestShortUrl (url) {
+    let isValid = Validation.isValidUrl(url);
     let errors = ['invalid url format'];
 
-    if (isValid === true) {
-      dispatch(module.exports.httpRequestShortUrl(url));
-    } else {
-      dispatch(module.exports.invalidLongUrl(url, errors));
+    return (dispatch) => {
+      if (isValid === true) {
+        dispatch({
+          type: Actions.REQUEST_SHORT_URL,
+          payload: { url }
+        });
+
+        // Eventually this will be an HTTP request...
+        setTimeout(() => {
+          dispatch(Actions.receiveShortUrl(
+            'placeholder title',
+            'placeholder long url',
+            'placeholder short url'
+          ));
+        }, 2000);
+      } else {
+        dispatch(Actions.requestShortUrlError(url, errors));
+      }
     }
   }
-}
 
-module.exports.httpRequestShortUrl = function(url) {
-  return (dispatch) => {
-    dispatch({
-      type: module.exports.HTTP_REQUEST_SHORT_URL,
-      payload: { url }
-    })
-    setTimeout(() => {
-      dispatch(module.exports.httpResponseShortUrl())
-    }, 2000);
-  };
-}
-
-module.exports.httpResponseShortUrl = function() {
-  return {
-    type: module.exports.HTTP_RESPONSE_SHORT_URL,
-    payload: {
-      title: 'placeholder title',
-      longUrl: 'placeholder long url',
-      shortUrl: 'placeholder short url'
+  static requestShortUrlError (url, errors) {
+    return {
+      type: Actions.REQUEST_SHORT_URL_ERROR,
+      payload: { url, errors }
     }
-  };
-}
+  }
 
-module.exports.invalidLongUrl = function(url, errors) {
-  return {
-    type: module.exports.INVALID_LONG_URL,
-    payload: { url, errors }
+  static receiveShortUrl (title, longUrl, shortUrl) {
+    return {
+      type: Actions.RECEIVE_SHORT_URL,
+      payload: { title, longUrl, shortUrl }
+    };
   }
 }
