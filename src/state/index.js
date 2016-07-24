@@ -1,5 +1,5 @@
 const urlProcessor = require('./UrlProcessorReducer');
-const lastProcessed = require('./lastProcessedReducer');
+const lastProcessed = require('./LastProcessedReducer');
 
 module.exports.getDefaultState = function () {
   return {
