@@ -1,11 +1,6 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-
+@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto:400,700');
+@import './_variables.scss';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import './mixins.scss';
-@import './animations.scss';
-
-.input-group-lg > .input-group-addon > .glyphicon {
-  font-size: 110%;
-  top: 3px;
-  @include animation('spin 1s infinite linear');
-}
+@import './_mixins.scss';
+@import './_animations.scss';
+@import './_overrides.scss';

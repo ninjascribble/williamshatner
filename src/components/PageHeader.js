@@ -5,7 +5,7 @@ module.exports = React.createClass({
     return (
       <header className="pageHeader text-center">
         <h1>William Shatner</h1>
-        <h2>is a URL shortener</h2>
+        <p>is a URL shortener</p>
       </header>
     );
   }

@@ -1,0 +1,5 @@
+.input-group-lg > .input-group-addon > .glyphicon {
+  font-size: 110%;
+  top: 3px;
+  @include animation('spin .75s infinite linear');
+}
