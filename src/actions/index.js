@@ -1,3 +1,4 @@
+const axios = require('axios');
 const Validation = require('../utils/Validation');
 
 module.exports = class Actions {
@@ -25,14 +26,23 @@ module.exports = class Actions {
           payload: { url }
         });
 
-        // Eventually this will be an HTTP request...
-        setTimeout(() => {
-          dispatch(Actions.receiveShortUrl(
-            'placeholder title',
-            'placeholder long url',
-            'placeholder short url'
-          ));
-        }, 2000);
+        axios.post('/url', { url })
+          .then((res) => {
+            if (!res.data) {
+              throw new Error('Could not reach the server');
+            }
+            if (res.data.errors) {
+              throw new Error(errors);
+            }
+            dispatch(Actions.receiveShortUrl(
+              res.data.title,
+              res.data.longUrl,
+              res.data.shortUrl
+            ));
+          })
+          .catch((err) => {
+            dispatch(Actions.requestShortUrlError(url, err));
+          });
       } else {
         dispatch(Actions.requestShortUrlError(url, errors));
       }
@@ -40,6 +50,12 @@ module.exports = class Actions {
   }
 
   static requestShortUrlError (url, errors) {
+    if (errors instanceof Error === true) {
+      errors = [errors.message];
+    }
+    if (errors instanceof Array === false) {
+      errors = [errors];
+    }
     return {
       type: Actions.REQUEST_SHORT_URL_ERROR,
       payload: { url, errors }

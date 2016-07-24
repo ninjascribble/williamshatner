@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     status: state.urlProcessor.status,
     url: state.urlProcessor.url,
-    errors: state.urlProcessor.errors
+    errors: state.urlProcessor.errors,
+    processed: (state.lastProcessed.shortUrl) ? state.lastProcessed : undefined
   }
 }
 

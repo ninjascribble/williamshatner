@@ -5,6 +5,7 @@ module.exports = React.createClass({
     status: React.PropTypes.string.isRequired,
     url: React.PropTypes.string,
     errors: React.PropTypes.array,
+    processed: React.PropTypes.object,
     onSubmit: React.PropTypes.func.isRequired
   },
 
@@ -17,6 +18,7 @@ module.exports = React.createClass({
   render: function () {
     return (
       <form ref="form" className="submissionForm" onSubmit={ this.onSubmit }>
+        { this.renderSuccess() }
         { this.renderErrors() }
         <div className="input-group input-group-lg">
           <input
@@ -29,6 +31,28 @@ module.exports = React.createClass({
         </div>
       </form>
     );
+  },
+
+  renderSuccess: function () {
+    if (this.props.processed) {
+      return (
+        <div className="alert alert-success" role="alert">
+          <strong>Success!</strong>
+          <ul>
+            <li>
+              <strong>Long Url: </strong>
+              <a target="_blank"
+                href={ this.props.processed.longUrl }>{ this.props.processed.longUrl }</a>
+            </li>
+            <li>
+              <strong>Short Url: </strong>
+              <a target="_blank"
+                href={ this.props.processed.shortUrl }>{ this.props.processed.shortUrl }</a>
+            </li>
+          </ul>
+        </div>
+      )
+    }
   },
 
   renderErrors: function () {
