@@ -37,17 +37,19 @@ module.exports = React.createClass({
     if (this.props.processed) {
       return (
         <div className="alert alert-success" role="alert">
-          <strong>Success!</strong>
-          <ul>
-            <li>
+          <ul className="list-unstyled">
+            <li className="truncate-text">
               <strong>Long Url: </strong>
               <a target="_blank"
                 href={ this.props.processed.longUrl }>{ this.props.processed.longUrl }</a>
             </li>
-            <li>
+            <li className="truncate-text">
               <strong>Short Url: </strong>
               <a target="_blank"
                 href={ this.props.processed.shortUrl }>{ this.props.processed.shortUrl }</a>
+            </li>
+            <li className="truncate-text">
+              <strong>Clickthroughs: </strong>{ this.props.processed.clicks }
             </li>
           </ul>
         </div>

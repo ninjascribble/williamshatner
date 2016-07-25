@@ -35,9 +35,9 @@ module.exports = class Actions {
               throw new Error(errors);
             }
             dispatch(Actions.receiveShortUrl(
-              res.data.title,
               res.data.longUrl,
-              res.data.shortUrl
+              res.data.shortUrl,
+              res.data.clicks
             ));
           })
           .catch((err) => {
@@ -62,10 +62,10 @@ module.exports = class Actions {
     }
   }
 
-  static receiveShortUrl (title, longUrl, shortUrl) {
+  static receiveShortUrl (longUrl, shortUrl, clicks) {
     return {
       type: Actions.RECEIVE_SHORT_URL,
-      payload: { title, longUrl, shortUrl }
+      payload: { longUrl, shortUrl, clicks }
     };
   }
 }

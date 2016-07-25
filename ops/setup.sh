@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Ensure latest
-apt-get update
-
 is_installed() {
   type -p "$1";
 }
+
+# Add MongoDB keyserver
+if ! is_installed mongod; then
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+  echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+fi
+
+# Ensure latest
+apt-get update
 
 # Install general tools
 if ! is_installed build-essential; then
@@ -34,6 +40,13 @@ fi
 if ! is_installed nodejs; then
   curl -sL https://deb.nodesource.com/setup_6.x | bash -
   apt-get install -y nodejs
+fi
+
+# Install and configure mongodb
+if ! is_installed mongod; then
+  apt-get install -y mongodb-org
+  cp /var/www/ops/mongod.conf /etc/mongod.conf
+  service mongod restart
 fi
 
 # Configure nginx

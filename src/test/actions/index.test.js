@@ -111,9 +111,9 @@ suite('Actions.requestShortUrl', () => {
     let url = 'a valid url';
     let response = {
       data: {
-        title: 'mock title',
         longUrl: 'mock long url',
-        shortUrl: 'mock short url'
+        shortUrl: 'mock short url',
+        clicks: 42
       }
     };
 
@@ -124,9 +124,9 @@ suite('Actions.requestShortUrl', () => {
     setImmediate(() => {
       expect(receiveShortUrl).to.have.been.calledOnce;
       expect(receiveShortUrl).to.have.been.calledWith(
-        response.data.title,
         response.data.longUrl,
-        response.data.shortUrl
+        response.data.shortUrl,
+        response.data.clicks
       );
       done();
     });
@@ -204,14 +204,14 @@ suite('Actions.requestShortUrlError', () => {
 
 suite('Actions.receiveShortUrl', () => {
   test('Returns RECEIVE_SHORT_URL', () => {
-    let title = 'mock data title';
     let longUrl = 'mock data long url';
     let shortUrl = 'mock data short url';
-    let result = Actions.receiveShortUrl(title, longUrl, shortUrl);
+    let clicks = 42;
+    let result = Actions.receiveShortUrl(longUrl, shortUrl, clicks);
 
     expect(result).to.deep.equal({
       type: Actions.RECEIVE_SHORT_URL,
-      payload: { title, longUrl, shortUrl }
+      payload: { longUrl, shortUrl, clicks }
     })
   });
 });

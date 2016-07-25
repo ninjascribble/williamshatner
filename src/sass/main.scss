@@ -4,3 +4,9 @@
 @import './_mixins.scss';
 @import './_animations.scss';
 @import './_overrides.scss';
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

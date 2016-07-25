@@ -10,9 +10,9 @@ module.exports.getDefaultState = function () {
       processed: undefined
     },
     lastProcessed: {
-      title: undefined,
       shortUrl: undefined,
-      longUrl: undefined
+      longUrl: undefined,
+      clicks: undefined
     }
   };
 }
