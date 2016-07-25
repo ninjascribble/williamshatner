@@ -1,7 +1,8 @@
-default: cleandeps installdeps client.build vm.stop vm.start
+default: clean installdeps test client.build vm.stop vm.start
 
-cleandeps:
-	cd ./src; rm -rf node_modules
+clean:
+	rm -rf ./src/node_modules
+	rm -f ./src/config/environment.json
 
 installdeps:
 	cd ./src; npm install
@@ -29,7 +30,10 @@ vm.stop:
 
 vm.deploy: test client.build server.restart
 
-ci.deploy: client.build
+ci.export:
+	node ./ops/exportConfig.js ./src/config/environment.json
+
+ci.deploy: client.build ci.export
 	rsync -avz ./ops $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
 	rsync -avz ./src $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
 	rsync -avz ./static $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)

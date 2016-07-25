@@ -2,6 +2,7 @@
 .vagrant
 node_modules
 npm-debug.log.*
+src/config/environment.json
 static/main.js*
 static/main.css*
 static/node_modules
