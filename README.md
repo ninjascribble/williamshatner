@@ -1,10 +1,13 @@
 What is this?
 --
-William Shatner is a URL shortener written in JavaScript. This is just a
-quick side project used to practice a few skills across the full web stack.
+William Shatner is a URL shortener written in JavaScript. This is just a quick side project used to practice a few skills across the full web stack. Is using ES6, React/Redux, a VM manager for the
+local dev environment, and an automated testing/building/deployment system a little overkill for a
+project of this size? Yes. Absolutely. Was it fun to build? Heck yeah!
 
-**Website:** http://shtnr.us  
-**GitHub Source:** https://github.com/ninjascribble/williamshatner  
+**Website:** http://shtnr.us
+
+**GitHub Source:** https://github.com/ninjascribble/williamshatner
+
 **Build Status:** [![CircleCI](https://circleci.com/gh/ninjascribble/williamshatner.svg?style=svg)](https://circleci.com/gh/ninjascribble/williamshatner)
 
 Building the project
