@@ -1,12 +1,25 @@
 const url = require('url');
+const fs = require('fs');
+const path = require('path');
+const marked = require('marked');
 const MongoDb = require('../sources/MongoDb');
 const Strings = require('../utils/Strings');
 const Config = require('../config');
 
 module.exports = {
-  configureIndexPageHandler: function (clientCssPath, clientJsPath) {
+  configureIndexPageHandler: function (clientCssPath, clientJsPath, readmePath) {
     return (req, res) => {
-      res.render('Index', { clientCssPath, clientJsPath });
+      fs.readFile(readmePath, 'utf-8', (err, text) => {
+        if (err) {
+          res.send({ errors: [err.message] });
+        } else {
+          res.render('Index', {
+            clientCssPath,
+            clientJsPath,
+            readme: marked(text)
+          });
+        }
+      });
     }
   },
 

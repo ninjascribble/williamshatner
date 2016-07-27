@@ -34,6 +34,7 @@ ci.export:
 	node ./ops/exportConfig.js ./src/config/environment.json
 
 ci.deploy: client.build ci.export
+	rsync -avz ./README.md $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
 	rsync -avz ./ops $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
 	rsync -avz ./src $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)
 	rsync -avz ./static $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_DIR)

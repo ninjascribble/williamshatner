@@ -10,9 +10,19 @@ module.exports = React.createClass({
         </head>
         <body>
           <div id="redux-root"></div>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-8 col-md-offset-2"
+                dangerouslySetInnerHTML={ this.renderReadme() }/>
+            </div>
+          </div>
           <script type="text/javascript" src={ this.props.clientJsPath }></script>
         </body>
       </html>
     );
+  },
+
+  renderReadme: function () {
+    return { __html: this.props.readme }
   }
 });
