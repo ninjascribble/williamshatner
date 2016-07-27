@@ -3,31 +3,9 @@ What is this?
 William Shatner is a URL shortener written in JavaScript. This is just a
 quick side project used to practice a few skills across the full web stack.
 
-[![CircleCI](https://circleci.com/gh/ninjascribble/williamshatner.svg?style=svg)](https://circleci.com/gh/ninjascribble/williamshatner)
-
 **Website:** http://192.241.194.131/  
 **GitHub Source:** https://github.com/ninjascribble/williamshatner  
-
-Tools used
---
-### Client-side
-* [React](https://facebook.github.io/react/)
-* [Redux](http://redux.js.org/)
-* [Bootstrap](http://getbootstrap.com/)
-* [Sass](http://sass-lang.com/)
-* [Babel](https://babeljs.io)
-* [Webpack](https://webpack.github.io/)
-
-### Server-side
-* [NodeJS](https://nodejs.org)
-* [Express](https://expressjs.com/)
-
-### Databases
-* [MongoDb](https://www.mongodb.com)
-
-### Deployment & Hosting
-* [CircleCI](https://circleci.com/)
-* [DigitalOcean](https://www.digitalocean.com/)
+**Build Status:** [![CircleCI](https://circleci.com/gh/ninjascribble/williamshatner.svg?style=svg)](https://circleci.com/gh/ninjascribble/williamshatner)
 
 Building the project
 --
@@ -54,6 +32,27 @@ ship.
 * `server.logs`: Tails the server logs.
 * `vm.deploy`: Test the deploy process against your VM. This is useful prior to committing changes
 that will be picked up and deployed by the CI service.
+
+Tools used
+--
+### Client-side
+* [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
+* [Bootstrap](http://getbootstrap.com/)
+* [Sass](http://sass-lang.com/)
+* [Babel](https://babeljs.io)
+* [Webpack](https://webpack.github.io/)
+
+### Server-side
+* [NodeJS](https://nodejs.org)
+* [Express](https://expressjs.com/)
+
+### Databases
+* [MongoDb](https://www.mongodb.com)
+
+### Deployment & Hosting
+* [CircleCI](https://circleci.com/)
+* [DigitalOcean](https://www.digitalocean.com/)
 
 Todo
 --
