@@ -3,7 +3,7 @@ What is this?
 William Shatner is a URL shortener written in JavaScript. This is just a
 quick side project used to practice a few skills across the full web stack.
 
-**Website:** http://shtnr.us
+**Website:** http://shtnr.us  
 **GitHub Source:** https://github.com/ninjascribble/williamshatner  
 **Build Status:** [![CircleCI](https://circleci.com/gh/ninjascribble/williamshatner.svg?style=svg)](https://circleci.com/gh/ninjascribble/williamshatner)
 
