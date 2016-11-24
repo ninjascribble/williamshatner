@@ -4,8 +4,6 @@ William Shatner is a URL shortener written in JavaScript. This is just a quick s
 local dev environment, and an automated testing/building/deployment system a little overkill for a
 project of this size? Yes. Absolutely. Was it fun to build? Heck yeah!
 
-**Website:** http://shtnr.us
-
 **GitHub Source:** https://github.com/ninjascribble/williamshatner
 
 **Build Status:** [![CircleCI](https://circleci.com/gh/ninjascribble/williamshatner.svg?style=svg)](https://circleci.com/gh/ninjascribble/williamshatner)
@@ -54,8 +52,8 @@ Tools used
 * [MongoDb](https://www.mongodb.com)
 
 ### Deployment & Hosting
-* [CircleCI](https://circleci.com/)
-* [DigitalOcean](https://www.digitalocean.com/)
+* ~~[CircleCI](https://circleci.com/)~~
+* ~~[DigitalOcean](https://www.digitalocean.com/)~~
 
 Todo
 --
